@@ -7,6 +7,10 @@
     "react-dom": "^16.1.1"
   },
   "devDependencies": {
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.1",
+    "enzyme-react-16-adapter-setup": "^0.1.0",
+    "raf": "^3.4.1",
     "react-scripts": "1.0.17"
   },
   "scripts": {
@@ -16,6 +20,6 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-      "extends": "react-app"
+    "extends": "react-app"
   }
 }
