@@ -71,7 +71,7 @@ class App extends Component {
   render() {
     return (
       <div className="list-item-card">
-        Hello World!
+        {JSON.stringify(this.props)}
       </div>
     );
   }
