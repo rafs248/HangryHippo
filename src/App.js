@@ -81,6 +81,7 @@ class App extends Component {
               </div>
               <div className="recipe-list-item-text-container">
                   <div className="recipe-list-item-title">{this.props.title}</div>
+                  <div className="recipe-list-item-used-ingredients">You have {this.props.usedIngredientCount} ingredients</div>
               </div>
           </div>
       </div>

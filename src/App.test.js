@@ -39,7 +39,7 @@ describe('Recipe List Item', () => {
     const testUsedIngredientsCount = 1;
     const wrapper = shallow(<App usedIngredientCount={testUsedIngredientsCount} />);
 
-    expect(getElement(wrapper)('div')('recipe-list-item-used-ingredients').text().indexOf(`${testUsedIngredientsCount}`)).not.toEqual(-1);
+    expect(getElement(wrapper)('div')('recipe-list-item-used-ingredients').first().text().indexOf(`${testUsedIngredientsCount}`)).not.toEqual(-1);
   });
 
   it('should prefer to say we use all the ingredients instead of saying the number if we use them all', () => {
