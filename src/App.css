@@ -32,6 +32,12 @@
     color: #f66e6e;
 }
 
+.recipe-list-item .recipe-list-item-missing-ingredients {
+    font-size: 16px;
+    font-weight: 700;
+    color: #f66e6e;
+}
+
 .recipe-list-item .recipe-list-item-image-container {
     flex: 1;
 }

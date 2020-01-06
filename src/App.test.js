@@ -47,14 +47,14 @@ describe('Recipe List Item', () => {
     const testMissingIngredientsCount = 0;
     const wrapper = shallow(<App usedIngredientCount={testUsedIngredientsCount} missedIngredientCount={testMissingIngredientsCount}/>);
 
-    expect(getElement(wrapper)('div')('recipe-list-item-used-ingredients').text().indexOf('all')).not.toEqual(-1);
+    expect(getElement(wrapper)('div')('recipe-list-item-used-ingredients').first().text().indexOf('all')).not.toEqual(-1);
   });
 
   it('should show a missing ingredient count if we have missing ingredients', () => {
     const testMissingIngredientsCount = 1;
     const wrapper = shallow(<App missedIngredientCount={testMissingIngredientsCount} />);
 
-    expect(getElement(wrapper)('div')('recipe-list-item-missing-ingredients').text().indexOf(`${testMissingIngredientsCount}`)).not.toEqual('-1');
+    expect(getElement(wrapper)('div')('recipe-list-item-missing-ingredients').first().text().indexOf(`${testMissingIngredientsCount}`)).not.toEqual('-1');
   });
 
   it('should not show a missing ingredient count if there are no missing ingredients', () => {
