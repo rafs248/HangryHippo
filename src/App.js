@@ -70,8 +70,19 @@ class App extends Component {
 
   render() {
     return (
-      <div className="list-item-card">
-        {JSON.stringify(this.props)}
+      <div className="list-item-card recipe-list-item">
+          <div className="recipe-item-content-container">
+              <div className="recipe-list-item-image-container">
+                <img
+                  src={this.props.image}
+                  className="img-responsive recipe-list-item-image"
+                  alt={this.props.title}
+                />
+              </div>
+              <div className="recipe-list-item-text-container">
+                  <div className="recipe-list-item-title">{this.props.title}</div>
+              </div>
+          </div>
       </div>
     );
   }

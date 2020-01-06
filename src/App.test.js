@@ -31,8 +31,8 @@ describe('Recipe List Item', () => {
   it('should display a title', () => {
     const testTitle = `I'm Batman`;
     const wrapper = shallow(<App title={testTitle} />);
-
-    expect(getElement(wrapper)('div')('recipe-list-item-title').text()).toEqual(testTitle);
+    let element = getElement(wrapper)('div')('recipe-list-item-title').first();
+    expect(element.text()).toEqual(testTitle);
   });
 
   it('should show the number of ingredients used', () => {
