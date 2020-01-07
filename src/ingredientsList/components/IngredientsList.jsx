@@ -23,6 +23,7 @@ const IngredientsList = (props) => (
         </div>
         <div className="ingredients-list-container">
             {
+                props.ingredients &&
                 props.ingredients.map((ingredient, index) => {
                     return <IngredientListItem
                         key={index}
