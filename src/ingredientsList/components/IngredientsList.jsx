@@ -1,9 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import IngredientListItem from "../../ingredientListItem/components/IngredientListItem";
+import AddTextItemInput from "../../addTextItemInput/components/AddTextItemInput";
 
 const propTypes = {
     ingredients: PropTypes.array,
+    nextIngredient: PropTypes.string,
+    addIngredient: PropTypes.func.isRequired,
+    handleAddNextChange: PropTypes.func.isRequired,
+    removeIngredient: PropTypes.func.isRequired,
     doSearch: PropTypes.func.isRequired,
     canSearch: PropTypes.bool,
 };
@@ -34,6 +39,13 @@ const IngredientsList = (props) => (
                     }
                 )
             }
+            <AddTextItemInput
+                id="nextIngredient"
+                placeholder="Add another ingredient"
+                value={props.nextIngredient}
+                addHandler={props.addIngredient}
+                changeHandler={props.handleAddNextChange}
+                />
         </div>
     </div>
 );
