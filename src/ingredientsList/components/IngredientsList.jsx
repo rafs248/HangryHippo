@@ -45,6 +45,7 @@ const IngredientsList = (props) => (
                 value={props.nextIngredient}
                 addHandler={props.addIngredient}
                 changeHandler={props.handleAddNextChange}
+                canAddItem={!(props.ingredients&&props.ingredients.length>0)||props.canSearch}
                 />
         </div>
     </div>
