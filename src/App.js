@@ -29,6 +29,28 @@ export const recipeInstructions = {
 class App extends Component {
   static defaultProps = ingredientsList;
 
+  state = {
+      ingredients: [],
+      nextIngredient: '',
+      canSearch: false,
+  }
+
+  addIngredient = () => {
+      if(this.state.nextIngredient.length===0)
+          return;
+      this.setState({
+          ingredients: this.state.ingredients.concat(this.state.nextIngredient),
+          nextIngredient: '',
+          canSearch: true,
+      })
+  }
+
+  handleAddNextChange = newAddNextIngredient => {
+      this.setState({
+          nextIngredient: newAddNextIngredient,
+      })
+  }
+
   render() {
     return (
       <div className="App container-fluid">
@@ -44,12 +66,12 @@ class App extends Component {
             <div className="panel panel-default hangry-panel">
               <div className="panel-body">
                 <IngredientsList 
-                  ingredients={this.props.ingredients}
-                  nextIngredient={this.props.nextIngredient}
-                  addIngredient={this.props.addIngredient}
+                  ingredients={this.state.ingredients}
+                  nextIngredient={this.state.nextIngredient}
+                  addIngredient={this.addIngredient}
                   removeIngredient={this.props.removeIngredient}
-                  handleAddNextChange={this.props.handleAddNextChange}
-                  canSearch={this.props.canSearch}
+                  handleAddNextChange={this.handleAddNextChange}
+                  canSearch={this.state.canSearch}
                 />
               </div>
             </div>
