@@ -45,6 +45,14 @@ class App extends Component {
       })
   }
 
+  removeIngredient = indexToRemove => {
+      const newIngredients = this.state.ingredients.concat([]);
+      newIngredients.splice(indexToRemove,1);
+      this.setState({
+          ingredients: newIngredients,
+      })
+  }
+
   handleAddNextChange = newAddNextIngredient => {
       this.setState({
           nextIngredient: newAddNextIngredient,
@@ -69,7 +77,7 @@ class App extends Component {
                   ingredients={this.state.ingredients}
                   nextIngredient={this.state.nextIngredient}
                   addIngredient={this.addIngredient}
-                  removeIngredient={this.props.removeIngredient}
+                  removeIngredient={this.removeIngredient}
                   handleAddNextChange={this.handleAddNextChange}
                   canSearch={this.state.canSearch}
                 />
