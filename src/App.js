@@ -53,7 +53,7 @@ class App extends Component {
           <div className="col-lg-8 recipes-col">
             <div className="panel panel-default hangry-panel">
               <div className="panel-body">
-                <RecipeItemList/>
+                <RecipeItemList items={[recipeSpec,recipeSpec,recipeSpec,recipeSpec]}/>
               </div>
             </div>
           </div>
