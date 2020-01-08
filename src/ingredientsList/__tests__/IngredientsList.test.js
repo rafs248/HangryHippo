@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
 import getElement from '../../common/utils/getElement';
 import IngredientsList from '../components/IngredientsList';
+import '../styles/ingredientsList.css'
 
 const setup = (input = {}) => (
   {

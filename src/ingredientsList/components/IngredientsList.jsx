@@ -30,12 +30,13 @@ const IngredientsList = (props) => (
             {
                 props.ingredients &&
                 props.ingredients.map((ingredient, index) => {
-                    return <IngredientListItem
-                        key={index}
-                        index={index}
-                        removeItem={props.removeIngredient}
-                    >{ingredient}
-                    </IngredientListItem>
+                    return
+                        <IngredientListItem
+                            key={index}
+                            index={index}
+                            removeItem={props.removeIngredient}
+                        >{ingredient}
+                        </IngredientListItem>
                     }
                 )
             }

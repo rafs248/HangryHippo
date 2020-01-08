@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import IngredientListItem from './ingredientListItem/components/IngredientListItem';
+import IngredientsList from './ingredientsList/components/IngredientsList';
 
 const recipeSpec = {
     id: 641803,
@@ -11,19 +11,23 @@ const recipeSpec = {
     likes: 1
   };
 
-const ingredient = {
-  removeItem: index => console.log(`removeItem fired for index ${index}`),
-  index: 0,
+const ingredientsList = {
+    ingredients: ['Water','Flour'],
+    nextIngredient: 'Sugar',
+    addIngredient: () => console.log('addIngredient fired'),
+    handleAddNextChange: () => console.log('handleAddNextChange fired'),
+    removeIngredient: () => console.log('removeIngredient fired'),
+    canSearch: true,
 };
 
 class App extends Component {
-  static defaultProps = ingredient;
+  static defaultProps = ingredientsList;
 
   render() {
     return (
-      <IngredientListItem {...this.props}>
-        Sugar
-      </IngredientListItem>
+      <IngredientsList {...this.props}>
+        Sugar-App
+      </IngredientsList>
     );
   }
 }
