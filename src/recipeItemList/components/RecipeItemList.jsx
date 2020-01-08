@@ -10,7 +10,10 @@ const propTypes = {
 const RecipeItemList = (props) => {
     return (
         <div className="recipe-item-list">
-            <div>No recipes found</div>
+            {(!props.items||props.items.length==0) &&
+                <div>No recipes found</div>
+            }
+
             {props.items && props.items
                 .map((r,index)=> {
                     return <RecipeItem id={r.id} image={r.image} missedIngredientCount={r.missedIngredientCount}
