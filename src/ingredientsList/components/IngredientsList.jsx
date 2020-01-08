@@ -14,6 +14,10 @@ const propTypes = {
 };
 
 
+const hasIngredients = (props) => {
+    return props.ingredients && props.ingredients.length > 0;
+}
+
 const IngredientsList = (props) => (
     <div className="ingredients-panel">
         <div className="ingredients-panel-text">
@@ -28,10 +32,9 @@ const IngredientsList = (props) => (
         </div>
         <div className="ingredients-list-container">
             {
-                props.ingredients &&
+                hasIngredients(props) &&
                 props.ingredients.map((ingredient, index) => {
-                    return
-                        <IngredientListItem
+                    return <IngredientListItem
                             key={index}
                             index={index}
                             removeItem={props.removeIngredient}
@@ -46,7 +49,7 @@ const IngredientsList = (props) => (
                 value={props.nextIngredient}
                 addHandler={props.addIngredient}
                 changeHandler={props.handleAddNextChange}
-                canAddItem={!(props.ingredients&&props.ingredients.length>0)||props.canSearch}
+                canAddItem={!hasIngredients(props)||props.canSearch}
                 />
         </div>
     </div>
