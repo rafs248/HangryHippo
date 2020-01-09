@@ -48,8 +48,11 @@ class App extends Component {
   removeIngredient = indexToRemove => {
       const newIngredients = this.state.ingredients.concat([]);
       newIngredients.splice(indexToRemove,1);
+      const newCanSearch = newIngredients.length !== 0;
+
       this.setState({
           ingredients: newIngredients,
+          canSearch: newCanSearch,
       })
   }
 
