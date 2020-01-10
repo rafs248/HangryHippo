@@ -33,6 +33,7 @@ class App extends Component {
       ingredients: [],
       nextIngredient: '',
       canSearch: false,
+      recipes: [],
   }
 
   addIngredient = () => {
@@ -62,6 +63,23 @@ class App extends Component {
       })
   }
 
+  doSearch = () => {
+      this.setState({
+          canSearch: false,
+      });
+      return new Promise((resolve, reject) => {
+          const newRecipeListLength = Math.floor(Math.random()*5+1)
+          const newRecipeList = new Array(newRecipeListLength);
+          newRecipeList.fill(recipeSpec);
+          setTimeout(resolve, 2000, newRecipeList);
+      }).then(newRecipes => {
+          this.setState({
+              recipes: newRecipes,
+              canSearch: true,
+          })
+      })
+  }
+
   render() {
     return (
       <div className="App container-fluid">
@@ -83,6 +101,7 @@ class App extends Component {
                   removeIngredient={this.removeIngredient}
                   handleAddNextChange={this.handleAddNextChange}
                   canSearch={this.state.canSearch}
+                  doSearch={this.doSearch}
                 />
               </div>
             </div>
@@ -90,7 +109,7 @@ class App extends Component {
           <div className="col-lg-8 recipes-col">
             <div className="panel panel-default hangry-panel">
               <div className="panel-body">
-                <RecipeItemList items={[recipeSpec, recipeSpec, recipeSpec]} />
+                <RecipeItemList items={this.state.recipes} />
               </div>
             </div>
           </div>
