@@ -71,16 +71,27 @@ class App extends Component {
   };
 
   showRecipe = id => {
-    /* set canSearch to false an isShowingRecipe to true in state */
+    /* set canSearch to false and isShowingRecipe to true in state */
+    this.setState({
+        isShowingRecipe: true,
+    });
 
     return new Promise((resolve, reject) => {
       setTimeout(resolve, 2000, recipeInstructions.instructions);
     }).then(instructions => {
       /* set instructions property on state to the value of the instructions returned from our fake api call */
+        this.setState({
+            instructions: recipeInstructions.instructions,
+        });
     });
   };
 
   hideRecipe = () => {
+      this.setState({
+          canSearch: true,
+          isShowingRecipe: false,
+          instructions: '',
+      });
     /* reset canSearch, set isShowingRecipe to false and clear the instructions property on state back to an empty string */
   };
       
@@ -117,10 +128,15 @@ class App extends Component {
                 {
                   /* Conditionally render a Recipe component if isShowingRecipe is true */
                   /* or a RecipeItemList if isShowingRecipe is false */
-                  /* You need to pass the instructions property off state to the instructions prop on the Recipe component */
+                  /* You need to pass the instructions property of state to the instructions prop on the Recipe component */
                   /* Also pass the hideRecipe call back on this component to the hideRecipe prop on the Recipe component */
                   /* Pass the showRecipe call back on this component to the showRecipe prop on the RecipeItemList component */
-                  <RecipeItemList items={this.state.recipes} />
+                    (!this.state.isShowingRecipe)&&
+                        <RecipeItemList items={this.state.recipes} showRecipe={this.showRecipe}/>
+                }
+                {
+                    (this.state.isShowingRecipe)&&
+                        <Recipe instructions={this.state.instructions} hideRecipe={this.hideRecipe}/>
                 }
               </div>
             </div>
