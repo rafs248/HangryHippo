@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow, mount } from 'enzyme';
-import RecipeItem from "../../RecipeItem/components/RecipeItem";
+import RecipeItem from "../../recipeItem/components/RecipeItem";
 import RecipeItemList from '../components/RecipeItemList';
 import getElement from '../../common/utils/getElement';
 

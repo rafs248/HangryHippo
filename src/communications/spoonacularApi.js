@@ -39,6 +39,30 @@ class SpoonacularApi {
     // You can find information about the endpoint that you need to interrogate here:
     // https://market.mashape.com/spoonacular/recipe-food-nutrition#get-recipe-information
     // You will need to take the "instructions" property off the response and have the promise return this
+      return axios.get('https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/'+id+'/information',
+          {
+              // params: {
+              //     fillIngredients: false,
+              //     ingredients: ingredients.join(','),
+              //     limitLicense: false,
+              //     number: 5,
+              //     ranking: 1,
+              // },
+              headers: {
+                  'X-Mashape-Key': this.apiKey,
+                  Accept: 'application/json',
+              },
+              transformResponse: [data => {
+                  console.log('response from server: ',JSON.parse(data));
+                  return JSON.parse(data).instructions;
+              }],
+          }
+      )
+          .then(res => res.data)
+          .catch(error => {
+              throw new Error("Bad response from server");
+          });
+
   };
 };
 
